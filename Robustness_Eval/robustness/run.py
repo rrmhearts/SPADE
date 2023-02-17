@@ -9,13 +9,15 @@ import numpy as np
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
 # read dataset from file
-dataset = CIFAR()
+model_path="./"
+dataset = CIFAR(data_path="../Datasets")
+
 
 # read trained model
-model_rn_0, _ = model_utils.make_and_restore_model(arch='resnet50', dataset=dataset, resume_path='cifar_nat_0.pt')
-model_rn_025, _ = model_utils.make_and_restore_model(arch='resnet50', dataset=dataset, resume_path='cifar_l2_0_25.pt')
-model_rn_05, _ = model_utils.make_and_restore_model(arch='resnet50', dataset=dataset, resume_path='cifar_l2_0_5.pt')
-model_rn_1, _ = model_utils.make_and_restore_model(arch='resnet50', dataset=dataset, resume_path='cifar_l2_1_0.pt')
+model_rn_0, _ = model_utils.make_and_restore_model(arch='resnet50', dataset=dataset, resume_path=f'{model_path}cifar_nat_0.pt')
+model_rn_025, _ = model_utils.make_and_restore_model(arch='resnet50', dataset=dataset, resume_path=f'{model_path}cifar_l2_0_25.pt')
+model_rn_05, _ = model_utils.make_and_restore_model(arch='resnet50', dataset=dataset, resume_path=f'{model_path}cifar_l2_0_5.pt')
+model_rn_1, _ = model_utils.make_and_restore_model(arch='resnet50', dataset=dataset, resume_path=f'{model_path}cifar_l2_1_0.pt')
 
 
 # img = img.to(device)
